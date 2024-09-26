@@ -24,12 +24,14 @@ async function quantidadeUsuarios() {
     const nomeDasRedes = Object.keys(dados)
     const quantidadeUsuarios = Object.values(dados)
   
-  const data = [
-    {
-      x: nomeDasRedes,
-      y: quantidadeUsuarios,
-      type: 'bar'
-    }
+    const data = [
+        {
+          x: 'nomeDasRedes',
+          y: quantidadeDeUsuarios,
+          type: 'bar',
+          marker: {
+            color: getComputedStyle(document.body).getPropertyValue('--primary-color')
+          }
   ]
   
   const grafico = document.createElement('div')
@@ -40,3 +42,8 @@ async function quantidadeUsuarios() {
   }
   
   quantidadeUsuarios()
+
+  const layout = {
+    plot_bgcolor: getCSS('--bg-color'),
+    paper_bgcolor: getCSS('--bg-color')
+}
